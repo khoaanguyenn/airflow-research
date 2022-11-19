@@ -1,0 +1,9 @@
+---
+:verbose: false
+:concurrency: 2
+:timeout: 25
+
+:queues:
+  # The default queue for all application jobs that don't have a specific queue.
+  - default
+  - airflow

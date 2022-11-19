@@ -1,0 +1,10 @@
+rules:
+  - spend_100:
+      spend_amount:
+        from: 100
+        to: 999
+      reward_points: 10
+  - spend_1000:
+      spend_amount:
+        from: 1000
+      reward_points: 100
