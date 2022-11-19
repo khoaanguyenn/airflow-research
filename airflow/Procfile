@@ -1,0 +1,2 @@
+scheduler: airflow scheduler
+webserver: airflow webserver
