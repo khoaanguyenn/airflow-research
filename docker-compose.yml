@@ -108,7 +108,6 @@ services:
       - 2300:2300
     volumes:
       - .:/usr/src/app/
-      - /Users/khoa.nguyenkaligo.com/.asdf/installs/ruby/2.7.6/lib/ruby/gems/2.7.0/gems/sidekiq-pro-5.5.5:/opt/airflow/data
 
   sidekiq:
     depends_on:
