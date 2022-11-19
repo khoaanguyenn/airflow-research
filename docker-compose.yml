@@ -17,10 +17,10 @@ x-airflow-common:
     AIRFLOW_CONN_RDB_CONN: 'postgresql://dbapplication_user:dbapplication_user@rdb:5432/postgres'
     _PIP_ADDITIONAL_REQUIREMENTS: 'pandahouse==0.2.7 clickhouse-driver==0.2.1 apache-airflow-providers-slack'
   volumes:
-    - /Users/khoa.nguyenkaligo.com/airflow/dags:/opt/airflow/dags
-    - /Users/khoa.nguyenkaligo.com/airflow/logs:/opt/airflow/logs
-    - /Users/khoa.nguyenkaligo.com/airflow/plugins:/opt/airflow/plugins
-    - /Users/khoa.nguyenkaligo.com/airflow/data:/opt/airflow/data
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/logs:/opt/airflow/logs
+    - ./airflow/plugins:/opt/airflow/plugins
+    - ./airflow/data:/opt/airflow/data
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     - postgres-db
