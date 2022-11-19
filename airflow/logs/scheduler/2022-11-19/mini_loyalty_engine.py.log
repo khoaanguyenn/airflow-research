@@ -1,0 +1,39 @@
+[2022-11-19T10:18:51.270+0000] {processor.py:154} INFO - Started process (PID=193) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:18:51.272+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2022-11-19T10:18:51.274+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:18:51.274+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:18:51.638+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:18:52.149+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:18:52.148+0000] {manager.py:507} INFO - Created Permission View: can edit on DAG:mini_loyalty_engine
+[2022-11-19T10:18:52.167+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:18:52.167+0000] {manager.py:507} INFO - Created Permission View: can read on DAG:mini_loyalty_engine
+[2022-11-19T10:18:52.184+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:18:52.184+0000] {manager.py:507} INFO - Created Permission View: can delete on DAG:mini_loyalty_engine
+[2022-11-19T10:18:52.186+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:18:52.186+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2022-11-19T10:18:52.225+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:18:52.225+0000] {dag.py:2606} INFO - Creating ORM DAG for mini_loyalty_engine
+[2022-11-19T10:18:52.266+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:18:52.266+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2022-11-19T10:18:52.331+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 1.067 seconds
+[2022-11-19T10:19:22.826+0000] {processor.py:154} INFO - Started process (PID=413) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:19:22.828+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2022-11-19T10:19:22.830+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:19:22.830+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:19:22.935+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:19:23.167+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:19:23.167+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2022-11-19T10:19:23.196+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:19:23.196+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2022-11-19T10:19:23.222+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.400 seconds
+[2022-11-19T10:19:53.335+0000] {processor.py:154} INFO - Started process (PID=637) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:19:53.336+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2022-11-19T10:19:53.338+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:19:53.338+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:19:53.440+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:19:53.691+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:19:53.691+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2022-11-19T10:19:53.718+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:19:53.718+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2022-11-19T10:19:53.742+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.411 seconds
+[2022-11-19T10:20:23.803+0000] {processor.py:154} INFO - Started process (PID=854) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:20:23.805+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2022-11-19T10:20:23.806+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:20:23.806+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:20:23.918+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:20:24.163+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:20:24.163+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2022-11-19T10:20:24.192+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:20:24.192+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2022-11-19T10:20:24.216+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.420 seconds
+[2022-11-19T10:20:54.325+0000] {processor.py:154} INFO - Started process (PID=1069) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:20:54.327+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2022-11-19T10:20:54.329+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:20:54.329+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:20:54.437+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2022-11-19T10:20:54.670+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:20:54.669+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2022-11-19T10:20:54.697+0000] {logging_mixin.py:120} INFO - [2022-11-19T10:20:54.697+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2022-11-19T10:20:54.728+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.410 seconds
