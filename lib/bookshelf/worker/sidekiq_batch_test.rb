@@ -7,12 +7,10 @@ module Bookshelf
       # set_complete('type' => 'helloo', 'greetings' => 'yoyoyo')
       # set_success('type' => 'batch is success', 'greetings' => 'printing successful signal', SidekiqBatchTest)
       # set_death('type' => 'batch is death', 'greetings' => 'printing death signal', SidekiqBatchTest)
+      sleep(5)
 
-      batch_jobs do
-        setup_sub_worker_array(
-          'Bookshelf::SidekiqDummyJob',
-          names_array
-        )
+      batch_jobs do |job|
+        job.add('Bookshelf::SidekiqDummyJob', names_array)
       end
     end
 

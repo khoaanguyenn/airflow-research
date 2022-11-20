@@ -15,11 +15,8 @@ module Bookshelf
       data = @redis.get(transform_label)
       parsed_date = JSON.parse(data)
 
-      batch_jobs do
-        setup_sub_worker_array(
-          'Bookshelf::LoadRowWorker',
-          parsed_date.map { |row| [row] }
-        )
+      batch_jobs do |job|
+        job.add('Bookshelf::LoadRowWorker', parsed_date.map { |row| [row] })
       end
     end
 
