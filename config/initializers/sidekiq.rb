@@ -15,7 +15,9 @@ module Sidekiq
             conn.hmset  key(id), 'update_time', Time.now.to_i, *(status_updates.to_a.flatten(1))
             conn.expire key(id), (expiration || Sidekiq::Status::DEFAULT_EXPIRY)
             # Push to channel if job hasn't concluded yet
-            conn.publish "sidekiq:job:#{id}", { status: status, details: {} }.to_json if status && !concluded_job
+            if status && !concluded_job
+              conn.publish "sidekiq:job:#{id}", Airflow::Message.new(status: status)
+            end
           end[0]
         end
       end
