@@ -35,21 +35,21 @@ with DAG(
     tags=['example'],
 ) as dag:
 
-    s1 = SFTPSensor(
-        task_id='check_book_file',
-        path='upload/book.csv',
-        sftp_conn_id='book_sftp',
-        poke_interval=5,
-        mode="reschedule"
-    )
+    # s1 = SFTPSensor(
+    #     task_id='check_book_file',
+    #     path='upload/book.csv',
+    #     sftp_conn_id='book_sftp',
+    #     poke_interval=5,
+    #     mode="reschedule"
+    # )
 
-    s2 = SFTPSensor(
-        task_id='check_bank_file',
-        path='upload/bank.csv',
-        sftp_conn_id='book_sftp',
-        poke_interval=5,
-        mode='reschedule'
-    )
+    # s2 = SFTPSensor(
+    #     task_id='check_bank_file',
+    #     path='upload/bank.csv',
+    #     sftp_conn_id='book_sftp',
+    #     poke_interval=5,
+    #     mode='reschedule'
+    # )
 
     # sidekiq_async = SidekiqJobOperator(
     #     task_id='test_deferable_operator',
@@ -103,4 +103,4 @@ with DAG(
     )
 
 
-    [s1, s2] >> sidekiq_async >> t1 >> t4
+    sidekiq_async >> t1 >> t4

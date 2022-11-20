@@ -56,7 +56,7 @@ with DAG(
         config={
             "queue": "airflow",
             "worker_class": "MiniLoyaltyEngine::FileProcessing::ExtractAccountFileWorker",
-            "args": ["accounts_file.csv"]
+            "args": ["upload/accounts_file.csv"]
         },
         retries=0,
         retry_delay=timedelta(seconds=5)
@@ -67,7 +67,7 @@ with DAG(
         config={
             "queue": "airflow",
             "worker_class": "MiniLoyaltyEngine::FileProcessing::ExtractTransactionFileWorker",
-            "args": ["transactions_file.csv"]
+            "args": ["upload/transactions_file.csv"]
         },
         retries=0,
         retry_delay=timedelta(seconds=5)
@@ -85,7 +85,7 @@ with DAG(
         retry_delay=timedelta(seconds=5)
     )
 
-    transform_points = SidekiqJobOperator(
+    transform_points = SidekiqBatchOperator(
         task_id='transform_points',
         config={
             "queue": "airflow",
