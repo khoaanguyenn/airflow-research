@@ -114,7 +114,7 @@ services:
       - redis
       - web
     build: .
-    command: sidekiq -e development -r ./config/environment.rb
+    command: sidekiq -e production -r ./config/boot.rb -C ./config/sidekiq.yml
     volumes:
       - .:/usr/src/app
     env_file:
