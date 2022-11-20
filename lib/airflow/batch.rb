@@ -23,10 +23,10 @@ module Airflow
     end
 
     def batch_jobs
-      worker_class_name, worker_args_array = yield
+      set_job = yield(SetJob.new)
 
       @batch = Sidekiq::Batch.new
-      Sidekiq.redis { |conn| conn.publish("sidekiq:batch:#{@jid}", batch.bid) }
+      Sidekiq.redis { |conn| conn.publish("sidekiq:batch:#{@jid}", Message.new(bid: batch.bid)) }
 
       BATCH_STATES.each do |state|
         callback_class = instance_variable_get("@#{state}_class").presence || self.class
@@ -35,24 +35,13 @@ module Airflow
       end
 
       @batch.jobs do
-        Sidekiq::Client.push_bulk(**build_bulk_params(worker_class_name, worker_args_array))
+        set_job.each_job do |job|
+          Sidekiq::Client.push_bulk(**build_bulk_params(job.class_name, job.args_array))
+        end
       end
     end
 
-    def setup_sub_worker_array(sub_worker_array, sub_worker_params)
-      [sub_worker_array, sub_worker_params]
-    end
-
     private
-
-    # def publish_status(status, details)
-    #   publish_channel(@from_jid, { status: status, details: details })
-    # end
-
-    # def publish_channel(jid, payload)
-    #   redis { |conn| conn.publish("sidekiq:batch:#{jid}", payload.to_json) }
-    #   logger.info(payload)
-    # end
 
     def build_bulk_params(worker_class, worker_args_array)
       {
@@ -61,6 +50,25 @@ module Airflow
         'args' => worker_args_array,
         'at' => (Time.now + 5.seconds).to_f
       }.compact
+    end
+
+    class SetJob
+      attr_reader :jobs_bulk
+
+      JobBulk = Struct.new(:class_name, :args_array)
+
+      def initialize
+        @jobs = []
+      end
+
+      def add(sub_job_class, sub_job_params)
+        @jobs.append(JobBulk.new(sub_job_class, sub_job_params))
+        self
+      end
+
+      def each_job(&block)
+        @jobs.each { |job_bulk| block.call(job_bulk) }
+      end
     end
   end
 end
