@@ -21,11 +21,8 @@ module MiniLoyaltyEngine
           [bank_account_id, @point_calculator.calculate(transactions)]
         end
 
-        batch_jobs do
-          setup_sub_worker_array(
-            'MiniLoyaltyEngine::PointCalculation::UpdatePointWorker',
-            pre_point_accounts
-          )
+        batch_jobs do |job|
+          job.add('MiniLoyaltyEngine::PointCalculation::UpdatePointWorker', pre_point_accounts)
         end
       end
 

@@ -5,6 +5,7 @@ module MiniLoyaltyEngine
     # Extract transaction file and load to database
     class ExtractTransactionFileWorker
       include Sidekiq::Worker
+      prepend Airflow::Job
 
       def initialize(file_handler: SftpHandler.new, raw_transactions_repo: RawTransactionsRepository.new)
         @file_handler = FileHandler.new(handler: file_handler)

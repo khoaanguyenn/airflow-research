@@ -2,6 +2,7 @@ module MiniLoyaltyEngine
   module Enrollment
     class EnrollUserWorker
       include Sidekiq::Worker
+      prepend Airflow::Job
 
       def initialize(
         raw_accounts_repo: RawAccountsRepository.new,

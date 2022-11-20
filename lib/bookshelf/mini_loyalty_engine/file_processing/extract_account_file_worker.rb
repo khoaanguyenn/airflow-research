@@ -5,6 +5,7 @@ module MiniLoyaltyEngine
     # Extract out the account file from SFTP
     class ExtractAccountFileWorker
       include Sidekiq::Worker
+      prepend Airflow::Job
 
       def initialize(file_handler: SftpHandler.new, raw_accounts_repo: RawAccountsRepository.new)
         @file_handler = FileHandler.new(handler: file_handler)

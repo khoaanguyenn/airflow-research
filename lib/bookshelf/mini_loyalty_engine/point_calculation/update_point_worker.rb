@@ -11,7 +11,6 @@ module MiniLoyaltyEngine
       end
 
       def perform(bank_account_id, add_points)
-        raise Interrupt, 'Death for sure!'
         point_account = @user_repo.fetch_user(bank_account_id).point_accounts
         updated_point = point_account.point_balance + add_points
         @point_accounts_repo.update(point_account.id, point_balance: updated_point)
