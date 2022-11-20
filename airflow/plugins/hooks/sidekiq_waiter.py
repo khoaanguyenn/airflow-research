@@ -69,13 +69,15 @@ class BatchInitWaiter(BatchWaiter):
       message = await self.sub.get_message(ignore_subscribe_messages=True)
       if message is not None:
         self.log.info(f"[BatchInitWaiter] - Message received: {message}")
-        data = message["data"]
+
+        data = json.loads(message["data"])
+        bid = data["bid"]
         status = data["status"]
         details = data["details"]
 
-        if self._is_bid(data):
-          self.log.info(f'[BatchInitWaiter] - Successfully received bid "b-{data}", existing loop...')
-          return data
+        if self._is_bid(bid):
+          self.log.info(f'[BatchInitWaiter] - Successfully received bid "b-{bid}", existing loop...')
+          return bid
 
         elif status == BatchWaiter.SUCCESS_STATE:
           self.log.info("[BatchStatusWaiter] - Batch is success, existing loop...")
@@ -99,7 +101,7 @@ class BatchStatusWaiter(BatchWaiter):
       message = await self.sub.get_message(ignore_subscribe_messages=True)
       if message is not None:
         self.log.info(f"[BatchStatusWaiter - Message received: {message}")
-        data = message["data"]
+        data = json.loads(message["data"])
         status = data["status"]
         details = data["details"]
 

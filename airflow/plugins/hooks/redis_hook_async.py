@@ -15,4 +15,4 @@ class RedisHookAsync(BaseHook):
 
     self.log.debug('Initalizing asynchronous Redis object for conn_id "%s" %s:%s:%s', self.redis_conn_id, self.host, self.port, self.db)
 
-    return Redis(host=self.host, port=self.port, db=self.db, decode_responses=True)
+    return Redis(host=self.host, port=self.port, db=self.db, password=self.password, decode_responses=True)
