@@ -12,7 +12,7 @@ class WaiterError(Exception):
 
 class JobWaiter(LoggingMixin):
   QUEUED_JOB = "queued"
-  COMPLETE_JOB = "complete" # This also mean success
+  COMPLETE_JOB = ["complete", "success"] # This also mean success
   RETRYING_JOB = "retrying"
   FAILED_JOB = "failed"
   WORKING_JOB = "working"
@@ -35,7 +35,7 @@ class JobStatusWaiter(JobWaiter):
         status = data["status"]
         details = data["details"]
 
-        if status == JobWaiter.COMPLETE_JOB:
+        if status in JobWaiter.COMPLETE_JOB:
           self.log.info("[Waiter] - Job is completed without error, exiting the loop...")
           return {"status": self.COMPLETE_JOB, "details": details}
 
