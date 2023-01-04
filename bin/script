@@ -1,0 +1,194 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+require 'csv'
+require 'colorize'
+require 'tty-table'
+
+require 'faker'
+require 'pg'
+require 'redis'
+require 'net/sftp'
+
+APP_ROOT = File.expand_path('..', __dir__)
+
+HOST_NAME = '34.124.215.193'.freeze
+
+PG_USERNAME = 'airflow'.freeze
+PG_PASSWORD = 'airflow'.freeze
+
+REDIS_PASSWORD = 'miniloyaltyengine'.freeze
+
+SFTP_USERNAME = 'miniloyaltyengine'.freeze
+SFTP_PASSWORD = 'pass'.freeze
+
+def yesno?(message = "\033[31mWARNING -  press 'y' to continue: ")
+  printf message
+  prompt = $stdin.gets.chomp
+  exit unless prompt == 'y'
+end
+
+def to_rows(arr)
+  arr.map { |e| [e] }
+end
+
+puts '⭐ Initializing the script...'
+
+yesno?("🍀 Checking essential connection - press 'y' to continue: ")
+
+puts
+# Check database connection
+begin
+  puts '🏕️  Checking Postgres connection...'.colorize(:cyan)
+  conn = PG.connect(
+    host: HOST_NAME,
+    port: 5432,
+    user: PG_USERNAME,
+    password: PG_PASSWORD
+  )
+  puts '✅ Postgres connection: OK'.colorize(:green)
+rescue PG::Error => e
+  puts e.message
+  abort 'Error: Postgres database unvailable. Shutting down...'.colorize(:red)
+ensure
+  conn&.close
+end
+
+puts
+
+# Check Redis connection
+begin
+  puts '🏕️  Checking Redis connection...'.colorize(:cyan)
+  redis_conn = Redis.new(
+    host: HOST_NAME,
+    port: 6379,
+    password: REDIS_PASSWORD
+  )
+  redis_conn.ping
+  puts '✅ Redis connection: OK'.colorize(:green)
+rescue Errno::ECONNREFUSED
+  abort 'Error: Redis server unvailable. Shutting down...'.colorize(:red)
+end
+
+puts
+
+# Check SFPT connection
+puts '🏕️  Checking SFPT connection...'.colorize(:cyan)
+Net::SFTP.start(HOST_NAME, SFTP_USERNAME, password: SFTP_PASSWORD, port: 2222) do |sftp|
+  puts '✅ SFPT connection: OK'.colorize(:green)
+end
+
+puts
+
+today_str = Date.today.strftime('%d-%m-%Y')
+LOCAL_PATH = "#{APP_ROOT}/mocks".freeze
+UPLOAD_PATH = '/upload'.freeze
+
+# Generate account file
+ACCOUNT_ROWS = 50
+ACCOUNT_HEADERS = %w[bank_account_id first_name last_name email gender address card_number card_type].freeze
+account_filename = "accounts_file_#{today_str}.csv"
+account_filepath = "#{LOCAL_PATH}/#{account_filename}"
+
+puts "📦 Generating \"#{ACCOUNT_ROWS}\" bank accounts"
+bank_account_ids = []
+ACCOUNT_ROWS.times do
+  bank_account_ids << Faker::Alphanumeric.alphanumeric(number: 15).upcase
+end
+
+puts
+yesno?("🍀 Generate bank accounts IDs - press 'y' to continue: ")
+puts '📋 First 5 bank account IDs'.colorize(:blue)
+bank_account_rows = to_rows(bank_account_ids.first(5))
+bank_account_table = TTY::Table.new(header: %w[bank_account_id], rows: bank_account_rows)
+puts bank_account_table.render(:unicode, alignments: [:center])
+puts "#{ACCOUNT_ROWS - 5} more...".colorize(:blue)
+puts
+
+yesno?("🍀 Generate account file - press 'y' to continue: ")
+puts '📦 Generating account file...'
+
+first_five_account_rows = []
+CSV.open(account_filepath, 'wb') do |csv|
+  csv << ACCOUNT_HEADERS
+  bank_account_ids.each_with_index do |bank_account_id, index|
+    row = [
+      bank_account_id,
+      Faker::Name.first_name,
+      Faker::Name.last_name,
+      Faker::Internet.email,
+      Faker::Gender.binary_type,
+      Faker::Address.street_address,
+      Faker::Bank.account_number(digits: 13),
+      Faker::Business.credit_card_type
+    ]
+    first_five_account_rows << row if index.between?(0, 4)
+    csv << row
+  end
+end
+
+puts
+puts '📋 First 5 bank accounts'.colorize(:blue)
+account_table = TTY::Table.new(header: ACCOUNT_HEADERS, rows: first_five_account_rows)
+puts account_table.render(:unicode, alignments: [:center])
+puts "#{ACCOUNT_ROWS - 5} more...".colorize(:blue)
+puts
+
+puts "Generated account file: #{account_filename.colorize(:blue)} with #{bank_account_ids.size.to_s.colorize(:blue)} rows"
+
+puts
+yesno?("🍀 Generate transaction file - press 'y' to continue: ")
+# Generate transactions file
+TRANSACTION_ROWS = 1_000
+TRANSACTION_HEADERS = %w[bank_account_id transaction_amount transaction_type transaction_date].freeze
+transaction_filename = "transactions_file_#{today_str}.csv"
+transaction_filepath = "#{LOCAL_PATH}/#{transaction_filename}"
+
+puts 'Generating transaction file...'
+first_five_transactions = []
+CSV.open(transaction_filepath, 'wb') do |csv|
+  csv << TRANSACTION_HEADERS
+  TRANSACTION_ROWS.times do |index|
+    row = [
+      bank_account_ids.sample,
+      Faker::Number.decimal(l_digits: 5, r_digits: 2),
+      %w[accrual reversal].sample,
+      Faker::Time.between_dates(from: Date.today - 100, to: Date.today, period: :all).utc.iso8601
+    ]
+    first_five_transactions << row if index.between?(0, 4)
+    csv << row
+  end
+end
+
+puts
+puts '📋 First 5 transactions'.colorize(:blue)
+transaction_table = TTY::Table.new(header: TRANSACTION_HEADERS, rows: first_five_transactions)
+puts transaction_table.render(:unicode, alignments: [:center])
+puts "#{TRANSACTION_ROWS - 5} more...".colorize(:blue)
+puts
+
+puts "📦 Generated transaction file: #{transaction_filename.colorize(:blue)} with #{TRANSACTION_ROWS.to_s.colorize(:blue)} rows"
+
+# Connect to sftp
+Net::SFTP.start(HOST_NAME, 'miniloyaltyengine', password: 'pass', port: 2222) do |sftp|
+  sftp_files = sftp.dir.entries(UPLOAD_PATH).select(&:file?)
+  sftp_filenames = sftp_files.map(&:name)
+  local_filenames = Dir["#{LOCAL_PATH}/*"].filter_map { |path| File.basename(path) if File.file?(path) }
+
+  table_rows = if sftp_filenames.size > local_filenames.size
+                 sftp_filenames.zip(local_filenames)
+               else
+                 local_filenames.zip(sftp_filenames).map(&:reverse)
+               end
+  file_table = TTY::Table.new(header: ['Available SFTP files', 'Generated local files'], rows: table_rows)
+  puts file_table.render(:unicode, alignments: [:center])
+
+  # Uploading files
+  diff_filenames = local_filenames - sftp_filenames
+  uploaded_filenames = diff_filenames.map { |filename| filename.colorize(:blue) }.join(',')
+  yesno?("🗂️  Uploading files: #{uploaded_filenames} - press 'y' to continue: ")
+
+  diff_filenames.each do |filename|
+    sftp.upload!("#{LOCAL_PATH}/#{filename}", "#{UPLOAD_PATH}/#{filename}")
+  end
+  puts '✅ Done'
+end
