@@ -15,6 +15,9 @@ def task_failure_alert(context):
 def taks_retry_alert(context):
     print(f"Task has failed, retrying in next 5 seconds")
 
+accounts_filepath = "upload/accounts_file-{{ ds }}.csv"
+transactions_filepath = "upload/transactions_file-{{ ds }}.csv"
+
 with DAG(
     'mini_loyalty_engine',
     # These args will get passed on to each operator
@@ -37,7 +40,7 @@ with DAG(
 
     check_accounts_file = SFTPSensor(
         task_id='check_accounts_file',
-        path='upload/accounts_file.csv',
+        path=accounts_filepath,
         sftp_conn_id='minile_sftp',
         poke_interval=5,
         mode='reschedule'
@@ -45,7 +48,7 @@ with DAG(
 
     check_transactions_file = SFTPSensor(
         task_id='check_transactions_file',
-        path='upload/transactions_file.csv',
+        path=transactions_filepath,
         sftp_conn_id='minile_sftp',
         poke_interval=5,
         mode='reschedule'
