@@ -79,7 +79,7 @@ end
 
 puts
 
-today_str = Date.today.strftime('%d-%m-%Y')
+today_str = Date.today.strftime('%Y-%m-%d')
 LOCAL_PATH = "#{APP_ROOT}/mocks".freeze
 UPLOAD_PATH = '/upload'.freeze
 
@@ -143,7 +143,7 @@ TRANSACTION_HEADERS = %w[bank_account_id transaction_amount transaction_type tra
 transaction_filename = "transactions_file_#{today_str}.csv"
 transaction_filepath = "#{LOCAL_PATH}/#{transaction_filename}"
 
-puts 'Generating transaction file...'
+puts '📦 Generating transaction file...'
 first_five_transactions = []
 CSV.open(transaction_filepath, 'wb') do |csv|
   csv << TRANSACTION_HEADERS
@@ -168,8 +168,11 @@ puts
 
 puts "📦 Generated transaction file: #{transaction_filename.colorize(:blue)} with #{TRANSACTION_ROWS.to_s.colorize(:blue)} rows"
 
+puts
+
+puts '🏕️  Connecting to SFTP server...'
 # Connect to sftp
-Net::SFTP.start(HOST_NAME, 'miniloyaltyengine', password: 'pass', port: 2222) do |sftp|
+Net::SFTP.start(HOST_NAME, SFTP_USERNAME, password: SFTP_PASSWORD, port: 2222) do |sftp|
   sftp_files = sftp.dir.entries(UPLOAD_PATH).select(&:file?)
   sftp_filenames = sftp_files.map(&:name)
   local_filenames = Dir["#{LOCAL_PATH}/*"].filter_map { |path| File.basename(path) if File.file?(path) }
