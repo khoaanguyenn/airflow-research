@@ -15,8 +15,8 @@ def task_failure_alert(context):
 def taks_retry_alert(context):
     print(f"Task has failed, retrying in next 5 seconds")
 
-accounts_filepath = "upload/accounts_file-{{ ds }}.csv"
-transactions_filepath = "upload/transactions_file-{{ ds }}.csv"
+accounts_filepath = "upload/accounts_file_{{ ds }}.csv"
+transactions_filepath = "upload/transactions_file_{{ ds }}.csv"
 
 with DAG(
     'mini_loyalty_engine',
@@ -59,7 +59,7 @@ with DAG(
         config={
             "queue": "airflow",
             "worker_class": "MiniLoyaltyEngine::FileProcessing::ExtractAccountFileWorker",
-            "args": ["upload/accounts_file.csv"]
+            "args": [accounts_filepath]
         },
         retries=0,
         retry_delay=timedelta(seconds=5)
@@ -70,7 +70,7 @@ with DAG(
         config={
             "queue": "airflow",
             "worker_class": "MiniLoyaltyEngine::FileProcessing::ExtractTransactionFileWorker",
-            "args": ["upload/transactions_file.csv"]
+            "args": [transactions_filepath]
         },
         retries=0,
         retry_delay=timedelta(seconds=5)
