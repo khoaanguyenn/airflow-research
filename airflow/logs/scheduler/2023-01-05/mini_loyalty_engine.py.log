@@ -1,0 +1,35 @@
+[2023-01-05T12:17:06.171+0000] {processor.py:154} INFO - Started process (PID=174) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:17:06.178+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2023-01-05T12:17:06.180+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.180+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:17:06.342+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:17:06.370+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.370+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:17:06.409+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.409+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2023-01-05T12:17:06.443+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.278 seconds
+[2023-01-05T12:17:36.920+0000] {processor.py:154} INFO - Started process (PID=399) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:17:36.922+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2023-01-05T12:17:36.924+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:36.924+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:17:37.026+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:17:37.282+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:37.282+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:17:37.312+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:37.311+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2023-01-05T12:17:37.337+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.423 seconds
+[2023-01-05T12:18:07.905+0000] {processor.py:154} INFO - Started process (PID=616) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:18:07.907+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2023-01-05T12:18:07.909+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:07.909+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:18:08.031+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:18:08.308+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:08.308+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:18:08.349+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:08.349+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2023-01-05T12:18:08.381+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.481 seconds
+[2023-01-05T12:18:38.478+0000] {processor.py:154} INFO - Started process (PID=841) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:18:38.480+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2023-01-05T12:18:38.482+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:38.482+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:18:38.583+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:18:38.801+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:38.801+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:18:38.826+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:38.826+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2023-01-05T12:18:38.849+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.376 seconds
+[2023-01-05T12:19:09.793+0000] {processor.py:154} INFO - Started process (PID=1099) to work on /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:19:09.799+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/mini_loyalty_engine.py for tasks to queue
+[2023-01-05T12:19:09.803+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:09.803+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:19:09.973+0000] {processor.py:766} INFO - DAG(s) dict_keys(['mini_loyalty_engine']) retrieved from /opt/airflow/dags/mini_loyalty_engine.py
+[2023-01-05T12:19:10.270+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:10.270+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:19:10.299+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:10.299+0000] {dag.py:3336} INFO - Setting next_dagrun for mini_loyalty_engine to None, run_after=None
+[2023-01-05T12:19:10.321+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/mini_loyalty_engine.py took 0.546 seconds

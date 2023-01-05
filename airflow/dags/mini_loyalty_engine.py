@@ -15,8 +15,9 @@ def task_failure_alert(context):
 def taks_retry_alert(context):
     print(f"Task has failed, retrying in next 5 seconds")
 
-accounts_filepath = "upload/accounts_file_{{ ds }}.csv"
-transactions_filepath = "upload/transactions_file_{{ ds }}.csv"
+today_str = date.today().strftime("%Y-%m-%d")
+accounts_filepath = "upload/accounts_file_{today}.csv".format(today=today_str)
+transactions_filepath = "upload/transactions_file_{today}.csv".format(today=today_str)
 
 with DAG(
     'mini_loyalty_engine',

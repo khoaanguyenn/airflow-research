@@ -1,0 +1,35 @@
+[2023-01-05T12:17:06.179+0000] {processor.py:154} INFO - Started process (PID=177) to work on /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:17:06.183+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/khoa_learn_dag.py for tasks to queue
+[2023-01-05T12:17:06.185+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.185+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:17:06.342+0000] {processor.py:766} INFO - DAG(s) dict_keys(['khoa_learn_dag']) retrieved from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:17:06.370+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.370+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:17:06.418+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.418+0000] {dag.py:3336} INFO - Setting next_dagrun for khoa_learn_dag to None, run_after=None
+[2023-01-05T12:17:06.459+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/khoa_learn_dag.py took 0.284 seconds
+[2023-01-05T12:17:36.930+0000] {processor.py:154} INFO - Started process (PID=402) to work on /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:17:36.932+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/khoa_learn_dag.py for tasks to queue
+[2023-01-05T12:17:36.933+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:36.933+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:17:37.031+0000] {processor.py:766} INFO - DAG(s) dict_keys(['khoa_learn_dag']) retrieved from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:17:37.282+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:37.282+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:17:37.312+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:37.311+0000] {dag.py:3336} INFO - Setting next_dagrun for khoa_learn_dag to None, run_after=None
+[2023-01-05T12:17:37.337+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/khoa_learn_dag.py took 0.416 seconds
+[2023-01-05T12:18:07.919+0000] {processor.py:154} INFO - Started process (PID=619) to work on /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:18:07.920+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/khoa_learn_dag.py for tasks to queue
+[2023-01-05T12:18:07.922+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:07.922+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:18:08.042+0000] {processor.py:766} INFO - DAG(s) dict_keys(['khoa_learn_dag']) retrieved from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:18:08.308+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:08.308+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:18:08.349+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:08.349+0000] {dag.py:3336} INFO - Setting next_dagrun for khoa_learn_dag to None, run_after=None
+[2023-01-05T12:18:08.381+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/khoa_learn_dag.py took 0.472 seconds
+[2023-01-05T12:18:38.483+0000] {processor.py:154} INFO - Started process (PID=844) to work on /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:18:38.485+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/khoa_learn_dag.py for tasks to queue
+[2023-01-05T12:18:38.487+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:38.487+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:18:38.584+0000] {processor.py:766} INFO - DAG(s) dict_keys(['khoa_learn_dag']) retrieved from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:18:38.801+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:38.800+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:18:38.828+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:38.827+0000] {dag.py:3336} INFO - Setting next_dagrun for khoa_learn_dag to None, run_after=None
+[2023-01-05T12:18:38.849+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/khoa_learn_dag.py took 0.370 seconds
+[2023-01-05T12:19:09.807+0000] {processor.py:154} INFO - Started process (PID=1102) to work on /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:19:09.817+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/khoa_learn_dag.py for tasks to queue
+[2023-01-05T12:19:09.821+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:09.821+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:19:09.975+0000] {processor.py:766} INFO - DAG(s) dict_keys(['khoa_learn_dag']) retrieved from /opt/airflow/dags/khoa_learn_dag.py
+[2023-01-05T12:19:10.270+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:10.269+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:19:10.303+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:10.303+0000] {dag.py:3336} INFO - Setting next_dagrun for khoa_learn_dag to None, run_after=None
+[2023-01-05T12:19:10.329+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/khoa_learn_dag.py took 0.536 seconds

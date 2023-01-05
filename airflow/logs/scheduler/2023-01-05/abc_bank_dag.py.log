@@ -1,0 +1,35 @@
+[2023-01-05T12:17:06.514+0000] {processor.py:154} INFO - Started process (PID=188) to work on /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:17:06.516+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/abc_bank_dag.py for tasks to queue
+[2023-01-05T12:17:06.518+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.518+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:17:06.638+0000] {processor.py:766} INFO - DAG(s) dict_keys(['abc_bank']) retrieved from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:17:06.672+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.672+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:17:06.726+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:06.726+0000] {dag.py:3336} INFO - Setting next_dagrun for abc_bank to None, run_after=None
+[2023-01-05T12:17:06.776+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/abc_bank_dag.py took 0.266 seconds
+[2023-01-05T12:17:37.845+0000] {processor.py:154} INFO - Started process (PID=414) to work on /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:17:37.848+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/abc_bank_dag.py for tasks to queue
+[2023-01-05T12:17:37.850+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:37.850+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:17:37.961+0000] {processor.py:766} INFO - DAG(s) dict_keys(['abc_bank']) retrieved from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:17:38.191+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:38.191+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:17:38.220+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:17:38.220+0000] {dag.py:3336} INFO - Setting next_dagrun for abc_bank to None, run_after=None
+[2023-01-05T12:17:38.249+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/abc_bank_dag.py took 0.408 seconds
+[2023-01-05T12:18:08.888+0000] {processor.py:154} INFO - Started process (PID=631) to work on /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:18:08.890+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/abc_bank_dag.py for tasks to queue
+[2023-01-05T12:18:08.909+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:08.909+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:18:09.024+0000] {processor.py:766} INFO - DAG(s) dict_keys(['abc_bank']) retrieved from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:18:09.353+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:09.353+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:18:09.387+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:09.387+0000] {dag.py:3336} INFO - Setting next_dagrun for abc_bank to None, run_after=None
+[2023-01-05T12:18:09.414+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/abc_bank_dag.py took 0.530 seconds
+[2023-01-05T12:18:39.609+0000] {processor.py:154} INFO - Started process (PID=866) to work on /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:18:39.611+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/abc_bank_dag.py for tasks to queue
+[2023-01-05T12:18:39.613+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:39.613+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:18:39.707+0000] {processor.py:766} INFO - DAG(s) dict_keys(['abc_bank']) retrieved from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:18:39.950+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:39.950+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:18:39.986+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:18:39.985+0000] {dag.py:3336} INFO - Setting next_dagrun for abc_bank to None, run_after=None
+[2023-01-05T12:18:40.009+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/abc_bank_dag.py took 0.404 seconds
+[2023-01-05T12:19:11.003+0000] {processor.py:154} INFO - Started process (PID=1124) to work on /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:19:11.005+0000] {processor.py:756} INFO - Processing file /opt/airflow/dags/abc_bank_dag.py for tasks to queue
+[2023-01-05T12:19:11.007+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:11.007+0000] {dagbag.py:537} INFO - Filling up the DagBag from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:19:11.109+0000] {processor.py:766} INFO - DAG(s) dict_keys(['abc_bank']) retrieved from /opt/airflow/dags/abc_bank_dag.py
+[2023-01-05T12:19:11.388+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:11.388+0000] {dag.py:2585} INFO - Sync 1 DAGs
+[2023-01-05T12:19:11.421+0000] {logging_mixin.py:120} INFO - [2023-01-05T12:19:11.420+0000] {dag.py:3336} INFO - Setting next_dagrun for abc_bank to None, run_after=None
+[2023-01-05T12:19:11.446+0000] {processor.py:176} INFO - Processing /opt/airflow/dags/abc_bank_dag.py took 0.446 seconds
